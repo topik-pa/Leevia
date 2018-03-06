@@ -1,25 +1,38 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-
-    <router-link to="/partecipanti">Go to Partecipanti</router-link>
+    <site-header></site-header>
     <router-view/>
+    <site-footer></site-footer>
   </div>
 </template>
 
 <script>
+import SiteHeader from '@/components/Header'
+import SiteFooter from '@/components/Footer'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    SiteHeader,
+    SiteFooter
+  },
+  data () {
+    return {
+      globalLabel: 'Ciao!'
+    }
+  },
+  methods: {
+    globalMethod () {
+      alert('Ciccio')
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
