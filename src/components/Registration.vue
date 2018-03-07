@@ -55,6 +55,9 @@
           </label>
         </div>
       </div>
+      <div class="cta">
+        <a href="#" class="btn btn-primary" @click="joinUs">Partecipa!</a>
+      </div>
     </form>
   </section>
 </template>
@@ -62,17 +65,41 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      greeting: 'Grazie per esserti iscritto!'
+    }
+  },
+  methods: {
+    joinUs: function () {
+      alert(this.greeting)
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  @import "../assets/styles/variables.scss";
   form {
-    background: white;
+    background: #FFFFFF;
     padding: 5%;
-    color: #000;
-    margin: 5%;
-    border: 2px solid red;
+    color: $secondary-color;
+    margin: 1%;
+    border: 2px solid $secondary-color;
+    border-radius: 5px;
+    label {
+      text-transform: uppercase;
+    }
+    .btn {
+      width: 100%;
+      margin: 20px auto;
+      display: block;
+      background-color: $primary-color;
+      border: none;
+      text-transform: uppercase;
+      color: $secondary-color;
+      font-weight: bold;
+      padding: 15px;
+      font-size: 125%;
+    }
   }
 </style>

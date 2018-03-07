@@ -18,12 +18,12 @@ export default {
   },
   data () {
     return {
-      globalLabel: 'Ciao!'
+      globalLabel: 'Leevia test project'
     }
   },
   methods: {
     globalMethod () {
-      alert('Ciccio')
+      alert(this.globalLabel)
     }
   }
 }
@@ -34,5 +34,11 @@ export default {
   font-family: 'Work Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+  #regolamento {
+      color: #FFFFFF;
+      text-decoration: underline;
+      font-weight: bold;
+    }
 }
 </style>

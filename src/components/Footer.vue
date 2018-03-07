@@ -25,19 +25,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $backgroundColor: #001e38;
-  $color: #ffcf6b;
+  @import "../assets/styles/variables.scss";
   .container {
-    background-color: $backgroundColor;
+    padding: 30px 0;
+    background-color: $secondary-color;
     text-align: center;
-    color: $color;
+    color: $primary-color;
     .follow-us {
       text-transform: uppercase;
       font-size: 200%;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
     .socials {
+      margin: 10px 0;
       i {
-        color: $color;
+        color: $primary-color;
+        margin: 0 10px;
+        font-size: 300%;
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .container {
+      .follow-us {
+        font-size: 300%;
+      }
+      .socials {
+        i {
+          font-size: 400%;
+        }
       }
     }
   }

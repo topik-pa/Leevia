@@ -2,7 +2,7 @@
   <main class="container">
     <div class="row">
       <div class="col">
-        Eeeeh.....
+        <h1>{{title}}</h1>
         <users-list></users-list>
       </div>
     </div>
@@ -18,29 +18,31 @@ export default {
   },
   data () {
     return {
-      title: 'Partecipanti',
-      paragraph: 'La top 10 dei partecipanti. Sei tra loro?',
-      userList: {}
+      title: 'Partecipanti'
     }
-  },
-  beforeCreate: function () {
-    console.log('Pippo!')
-    $.get('https://api.github.com/users/octocat/followers', function () {
-    })
-      .done(function (data) {
-        this.userList = data
-        console.log(this.userList)
-      })
-      .fail(function () {
-        alert('error')
-      })
-      .always(function () {
-        alert('finished')
-      })
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  $backgroundColor: #001e38;
+$backgroundColor: #001e38;
+  main {
+    background-color: $backgroundColor;
+  }
+  .container {
+    color: #FFFFFF;
+    font-size: 120%;
+    h1 {
+      font-size: 260%;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-align: center;
+    }
+    .row {
+      background-image: url('../assets/images/img_2-min.jpg');
+      background-position: 83% 0%;
+      background-repeat: no-repeat;
+      background-size: 170%;
+    }
+  }
 </style>

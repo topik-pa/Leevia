@@ -24,34 +24,40 @@ export default {
     return {
       title: 'Vinci un viaggio a Parigi',
       paragraph: 'Compila il form con i tuoi dati e partecipa all\'estrazioone di un viaggio a Parigi!',
-      note: 'Concorso valido dal 20/10/2017. Per info consulta il <a href="#">regolamento</a>.'
+      note: 'Concorso valido dal 20/10/2017. Per info consulta il <a id="regolamento" href="#">regolamento</a>.'
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  $backgroundColor: #001e38;
+  @import "../assets/styles/variables.scss";
   main {
-    background-color: $backgroundColor;
+    background-color: $secondary-color;
   }
   .container {
-    color: #FFFFFF;
-    font-size: 120%;
+    color: $text-color;
     h1 {
-      font-size: 260%;
+      font-size: 480%;
       text-transform: uppercase;
       font-weight: bold;
     }
+    p {
+      font-size: 160%;
+    }
     .note {
-      font-size: 70%;
-      a {
-        color: #FFFFFF;
-        text-decoration: underline;
-      }
+      font-size: 110%;
     }
     .description {
-      padding: 20% 10%;
+      padding: 5% 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .row {
+      background-image: url('../assets/images/img_2-min.jpg');
+      background-position: 83% 0%;
+      background-repeat: no-repeat;
+      background-size: 170%;
     }
   }
 </style>
