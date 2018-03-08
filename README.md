@@ -8,6 +8,9 @@ Prior to build it, ensure your have installed node.js package manager in your PC
 Then, clone or download the solution in a local directory and follow the following instructions.
 
 
+> Side note about SEO and VUE. As requested, I have implemented also some "SEO on page" technics (meta tags, title, canonical, microdata, og:meta...). These are rendered as usual for any browser and spider but the page content itself (inside the <div id="app> tag") is rendered by Vue javascript engine. This can lead in some SEO issue for those spiders that cannot reach js rendered content. Also spiders from Google can have issues with that. If you press CTRL+U keys you will able to see the static (no js rendered) content as an ipotetical spider does. This content is almost empty.
+
+
 ## Build Setup
 
 ``` bash
