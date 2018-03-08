@@ -1,7 +1,8 @@
 <template>
   <section>
     <p>{{paragraph}}</p >
-    <ul>
+    <div v-if="!usersLoaded" class="loader"></div>
+    <ul v-else >
       <li v-for="(user, index) in userList" v-bind:key="index" v-if="user && index < limitationList">
         <span class="index">{{ index + 1 }}</span><a :href="user.html_url"><img :src="user.avatar_url" /></a><span class="name">{{user.login}}</span>
       </li>
@@ -15,16 +16,19 @@ export default {
     return {
       paragraph: 'La top 10 dei partecipanti. Sei tra loro?',
       userList: [{}],
-      limitationList: 10
+      limitationList: 10,
+      usersLoaded: false,
+      usersUrl: 'https://api.github.com/users/octocat/followers'
     }
   },
   methods: {
     getUsers: function () {
       var that = this
-      $.get('https://api.github.com/users/octocat/followers', function () {
+      $.get(this.usersUrl, function () {
       })
         .done(function (data) {
           that.userList = data
+          setTimeout(function () { that.usersLoaded = true }, 800)
         })
         .fail(function () {
           alert('error on ajax request')
@@ -38,10 +42,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $primary-color: '#ffcf6b';
   p {
     text-align: center;
-    font-weight: bold;
     margin-bottom: 10%;
     padding: 0 25% 10% 25%;
   }
@@ -82,6 +84,10 @@ export default {
     }
   }
   @media only screen and (min-width: 768px) {
+    p {
+      padding: 0;
+      margin-bottom: 5%;
+    }
     ul {
       li {
         span {
@@ -98,4 +104,5 @@ export default {
       }
     }
   }
+  @import "../assets/styles/loader.scss";
 </style>

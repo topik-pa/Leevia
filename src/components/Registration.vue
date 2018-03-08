@@ -93,6 +93,7 @@ export default {
     border-radius: 5px;
     label {
       text-transform: uppercase;
+      font-weight: normal;
     }
     .btn {
       width: 100%;

@@ -77,7 +77,6 @@ export default {
         right: 0px;
         .nav li a {
           padding: 0 0 0 50px;
-          font-weight: bold;
           font-size: 120%;
         }
       }

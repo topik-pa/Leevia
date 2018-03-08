@@ -25,9 +25,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$backgroundColor: #001e38;
+  @import "../assets/styles/variables.scss";
   main {
-    background-color: $backgroundColor;
+    background-color: $secondary-color;
   }
   .container {
     color: #FFFFFF;
@@ -46,7 +46,7 @@ $backgroundColor: #001e38;
       background-position: 28% -7%;
     }
     .col {
-      background-color: $backgroundColor;
+      background-color: $secondary-color;
       margin-top: 10%;
       padding-top: 10%;
     }
@@ -54,8 +54,21 @@ $backgroundColor: #001e38;
   @media only screen and (min-width: 768px) {
     .container {
       .row {
-        background-size: cover;
-        background-position: 0 0;
+        background-position: 0 -90%;
+      }
+      h1 {
+        margin: 7% 0;
+      }
+      .col {
+        margin: 0;
+        padding-top: 5%;
+      }
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    .container {
+      .row {
+        background-position: 0 -115%;
       }
     }
   }

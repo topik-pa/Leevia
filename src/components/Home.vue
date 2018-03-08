@@ -37,32 +37,37 @@ export default {
   }
   .container {
     color: $text-color;
+    text-align: center;
     h1 {
-      font-size: 480%;
+      font-size: 450%;
       text-transform: uppercase;
       font-weight: bold;
     }
     p {
-      font-size: 160%;
+      font-size: 180%;
     }
     .note {
       font-size: 110%;
     }
     .description {
-      padding: 5% 20px;
-      text-align: center;
-      font-weight: bold;
+      padding: 5% 30px;
     }
     .row {
       background-image: url('../assets/images/img_2-resize-min-reverse.jpg');
       background-repeat: no-repeat;
-      background-size: cover;
-      background-size: 270%;
-      background-position: 28% 0%;
+      background-size: 200%;
+      background-position: 23% 0%;
     }
   }
   @media only screen and (min-width: 768px) {
     .container {
+      text-align: left;
+      h1 {
+        font-size:700%;
+      }
+      .description {
+        padding: 5% 55px;
+      }
       .row {
         background-size: cover;
         background-position: 0 0;

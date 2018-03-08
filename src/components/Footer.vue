@@ -19,7 +19,7 @@ export default {
     return {
       followUs: 'Seguici sui social',
       socials: [
-        {name: 'facebook'},
+        {name: 'facebook-official'},
         {name: 'twitter'},
         {name: 'instagram'},
         {name: 'youtube'}
@@ -46,7 +46,7 @@ export default {
       margin: 10px 0;
       i {
         color: $primary-color;
-        margin: 0 10px;
+        margin: 0 20px;
         font-size: 300%;
       }
     }
