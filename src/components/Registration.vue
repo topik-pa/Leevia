@@ -55,7 +55,10 @@
           </label>
         </div>
       </div>
-      <div class="cta">
+      <div v-if="registered">
+        <div class="thanks">{{greeting}}</div>
+      </div>
+      <div class="cta" v-else>
         <a href="#" class="btn btn-primary" @click="joinUs">Partecipa!</a>
       </div>
     </form>
@@ -66,12 +69,14 @@
 export default {
   data () {
     return {
-      greeting: 'Grazie per esserti iscritto!'
+      greeting: 'Grazie per esserti iscritto!',
+      registered: false
     }
   },
   methods: {
-    joinUs: function () {
-      alert(this.greeting)
+    joinUs: function (e) {
+      e.preventDefault()
+      this.registered = true
     }
   }
 }
@@ -81,9 +86,9 @@ export default {
   @import "../assets/styles/variables.scss";
   form {
     background: #FFFFFF;
-    padding: 5%;
+    padding: 30px;
     color: $secondary-color;
-    margin: 1%;
+    margin: 30px;
     border: 2px solid $secondary-color;
     border-radius: 5px;
     label {
@@ -100,6 +105,14 @@ export default {
       font-weight: bold;
       padding: 15px;
       font-size: 125%;
+    }
+    .thanks {
+      font-size: 170%;
+      text-align: center;
+      margin: 20px 0;
+      border: 1px solid $primary-color;;
+      padding: 10px;
+      color: $primary-color;
     }
   }
 </style>

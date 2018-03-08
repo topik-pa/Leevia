@@ -35,6 +35,8 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 12px;
+  text-rendering: optimizelegibility;
+  text-shadow: 0 0 0 #AAA, 0 0 .5px transparent;
   #regolamento {
       color: #FFFFFF;
       text-decoration: underline;

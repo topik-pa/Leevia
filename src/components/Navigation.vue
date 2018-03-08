@@ -12,7 +12,7 @@
       <ul class="nav navbar-nav">
         <li><router-link to="/">Partecipa</router-link></li>
         <li><router-link to="/partecipanti">Partecipanti</router-link></li>
-        <li><a href="/static/regulation.pdf">Regolamento</a></li><!--TODO-->
+        <li><a href="/static/documents/regulation.pdf" download="/static/documents/regulation.pdf">Regolamento</a></li>
       </ul>
     </div>
   </nav>
@@ -21,9 +21,7 @@
 <script>
 export default {
   data () {
-    return {
-      greeting: 'Grazie per esserti iscritto!'
-    }
+    return {}
   }
 }
 </script>

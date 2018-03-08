@@ -2,7 +2,7 @@
   <header class="container">
     <div class="row">
       <div class="col wrapper">
-        <img class="logo" src="../assets/images/logo.png">
+        <router-link to="/"><img class="logo" src="../assets/images/logo.png"></router-link>
         <navigation></navigation>
       </div>
     </div>

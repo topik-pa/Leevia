@@ -54,10 +54,19 @@ export default {
       font-weight: bold;
     }
     .row {
-      background-image: url('../assets/images/img_2-min.jpg');
-      background-position: 83% 0%;
+      background-image: url('../assets/images/img_2-resize-min-reverse.jpg');
       background-repeat: no-repeat;
-      background-size: 170%;
+      background-size: cover;
+      background-size: 270%;
+      background-position: 28% 0%;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .container {
+      .row {
+        background-size: cover;
+        background-position: 0 0;
+      }
     }
   }
 </style>
