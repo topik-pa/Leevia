@@ -20,15 +20,13 @@ export default {
   },
   beforeCreate: function () {
     var that = this
-    console.log('Pippo!')
     $.get('https://api.github.com/users/octocat/followers', function () {
     })
       .done(function (data) {
         that.userList = data
-        console.log(this.userList)
       })
       .fail(function () {
-        alert('error')
+        alert('error on ajax request')
       })
   }
 }

@@ -4,10 +4,9 @@
       <div class="col">
         <div class="follow-us">{{followUs}}</div>
           <div class="socials">
-            <a href="#"><i class="fa fa-facebook-official"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#" v-for="(social, index) in socials" v-bind:key="index">
+              <i :class="'fa fa-' + social.name"></i>
+            </a>
           </div>
       </div>
     </div>
@@ -18,7 +17,13 @@
 export default {
   data () {
     return {
-      followUs: 'Seguici sui social'
+      followUs: 'Seguici sui social',
+      socials: [
+        {name: 'facebook'},
+        {name: 'twitter'},
+        {name: 'instagram'},
+        {name: 'youtube'}
+      ]
     }
   }
 }
