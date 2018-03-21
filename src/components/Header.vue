@@ -1,8 +1,8 @@
 <template>
   <header class="container">
     <div class="row">
-      <div class="col wrapper">
-        <router-link to="/"><img class="logo" src="../assets/images/logo.png"></router-link>
+      <div class="col">
+        <router-link to="/"><logo></logo></router-link>
         <navigation></navigation>
       </div>
     </div>
@@ -10,10 +10,12 @@
 </template>
 
 <script>
+import Logo from '@/components/Logo'
 import Navigation from '@/components/Navigation'
 export default {
   components: {
-    Navigation
+    Navigation,
+    Logo
   },
   data () {
     return {}
@@ -23,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
   @import "../assets/styles/variables.scss";
-  .wrapper {
+  .col {
     background-color: $primary-color;
     display: flex;
     flex-direction: row;
@@ -35,7 +37,7 @@ export default {
     }
   }
   @media only screen and (min-width: 768px) {
-    .wrapper {
+    .col {
       .logo {
         margin: 17px 40px;
       }

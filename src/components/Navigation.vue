@@ -1,19 +1,37 @@
 <template>
-  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><router-link to="/">Partecipa</router-link></li>
-        <li><router-link to="/partecipanti">Partecipanti</router-link></li>
-        <li><a href="/static/documents/regulation.pdf" download="/static/documents/regulation.pdf">Regolamento</a></li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!--<a class="navbar-brand" href="#">Navbar</a>-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <router-link to="/" class="nav-link">Partecipa</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/partecipanti" class="nav-link">Partecipanti</router-link>
+        </li>
+        <!--<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>-->
+        <!--<li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>-->
       </ul>
+      <!--<form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>-->
     </div>
   </nav>
 </template>
@@ -28,58 +46,27 @@ export default {
 
 <style lang="scss" scoped>
   @import "../assets/styles/variables.scss";
-  .navbar {
-    min-height: initial;
-    margin-bottom: 0;
-    &.navbar-inverse {
-      background-color: initial;
-      border-color: initial;
-      border:none;
-      .navbar-toggle {
-        border: none;
-        padding: 0;
-        &:focus, &:hover {
-          background-color: initial;
+
+  nav {
+    &.bg-light {
+      background-color: transparent!important;
+    }
+    li {
+      a{
+        color: $secondary-color;
+        text-transform: uppercase;
+        &.router-link-exact-active {
+          text-decoration:underline;
         }
-        .icon-bar {
-          background-color: $secondary-color;
-          width: 27px;
-          height: 3px;
-        }
-      }
-      .navbar-nav {
-        li {
-          a{
-            color: $secondary-color;
-            text-transform: uppercase;
-            font-weight: bold;
-            &.router-link-exact-active {
-              text-decoration:underline;
-            }
-          }
-        }
-      }
-      .navbar-collapse {
-        position: fixed;
-        right: 0px;
-        background: $primary-color;
       }
     }
   }
-  @media only screen and (min-width: 768px) {
-    .wrapper {
-      .navbar.navbar-inverse {
-      .navbar-nav {
-        margin-right: 40px;
-      }
-      .navbar-collapse {
-        position: relative;
-        right: 0px;
-        .nav li a {
-          padding: 0 0 0 50px;
-          font-size: 120%;
+  @media (max-width: 991.98px) {
+    nav {
+      li {
+        a{
+          font-weight: bold;
         }
-      }
       }
     }
   }

@@ -1,8 +1,8 @@
 <template>
   <main class="container">
     <div class="row">
-      <h1>{{title}}</h1>
       <div class="col">
+        <h1>{{title}}</h1>
         <users-list></users-list>
       </div>
     </div>
@@ -39,14 +39,7 @@ export default {
       text-align: center;
       margin-top: 20%;
     }
-    .row {
-      background-image: url('../assets/images/img_2-resize-min-reverse.jpg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: 28% -7%;
-    }
     .col {
-      background-color: $secondary-color;
       margin-top: 10%;
       padding-top: 10%;
     }
@@ -62,13 +55,6 @@ export default {
       .col {
         margin: 0;
         padding-top: 5%;
-      }
-    }
-  }
-  @media only screen and (min-width: 992px) {
-    .container {
-      .row {
-        background-position: 0 -115%;
       }
     }
   }

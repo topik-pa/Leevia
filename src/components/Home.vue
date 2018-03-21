@@ -1,12 +1,12 @@
 <template>
   <main class="container">
     <div class="row">
-      <div class="description col-sm-7">
+      <div class="description col-md-7">
         <h1>{{title}}</h1>
         <p>{{paragraph}}</p>
         <p class="note" v-html="note"></p>
       </div>
-      <div class="col-sm-5">
+      <div class="col-md-5">
         <registration></registration>
       </div>
     </div>

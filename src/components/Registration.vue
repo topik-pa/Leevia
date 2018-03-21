@@ -1,61 +1,24 @@
 <template>
   <section>
     <form>
-      <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="text" class="form-control" id="name" placeholder="Mario">
-      </div>
-      <div class="form-group">
-        <label for="surname">Cognome</label>
-        <input type="text" class="form-control" id="surname" placeholder="Rossi">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" placeholder="mariorossi@leeviamail.com">
-      </div>
-      <div class="form-group">
-        <label for="telephone">Telefono</label>
-        <input type="tel" class="form-control" id="telephone" placeholder="3397777777">
-      </div>
-      <div class="form-group">
-        <label for="born">Data di nascita</label>
-        <input type="text" class="form-control" id="born" placeholder="June 21, 1991">
-      </div>
-      <div class="form-group">
-        <label for="everbeen">Sei mai stato a parigi</label>
-        <select class="form-control" id="everbeen">
-          <option>Si</option>
-          <option>No</option>
-          <option>Non ricordo</option>
-        </select>
-      </div>
-      <div class="privacy-1">
-        <p>ACCETTO il regolamento ed acconsento....</p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="privacy-1" id="privacy-1-Y" value="Y" checked>
-          <label class="form-check-label" for="privacy-1-Y">
-            Si
-          </label>
-          <input class="form-check-input" type="radio" name="privacy-1" id="privacy-1-Y" value="N">
-          <label class="form-check-label" for="privacy-2-Y">
-            No
-          </label>
+      <div v-for="(input, index) in form" v-bind:key="index">
+        <div v-if="input.wrapper" class="inputs-wrapper">
+          <div>{{input.text}}</div>
+          <div v-for="(subinput, index) in input.inputs" v-bind:key="index">
+            <input :type="subinput.type" :name="subinput.id" :value="subinput.value" :id="subinput.id + index">
+            <label :for="subinput.id + index">{{subinput.label}}</label>
+          </div>
+        </div>
+        <div v-else class="form-group">
+          <label :for="input.id">{{input.label}}</label>
+          <select v-if="input.type == 'select'" class="form-control" :id="input.id" :name="input.id">
+            <option v-for="(option, index) in input.options" v-bind:key="index" :value="option.value">{{option.text}}</option>
+          </select>
+          <input v-else-if="input.type == 'radio'" :type="input.type" :id="input.id" :name="input.id"/>
+          <input v-else :type="input.type" class="form-control" :id="input.id" :placeholder="input.placeholder" :name="input.id"/>
         </div>
       </div>
-      <div class="privacy-2">
-        <p>ACCETTO il regolamento ed acconsento....</p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="privacy-2" id="privacy-2-Y" value="Y" checked>
-          <label class="form-check-label" for="privacy-2-Y">
-            Si
-          </label>
-          <input class="form-check-input" type="radio" name="privacy-2" id="privacy-2-Y" value="N">
-          <label class="form-check-label" for="privacy-2-Y">
-            No
-          </label>
-        </div>
-      </div>
-      <div v-if="registered">
+      <div v-if="submitted">
         <div class="thanks">{{greeting}}</div>
       </div>
       <div class="cta" v-else>
@@ -70,13 +33,83 @@ export default {
   data () {
     return {
       greeting: 'Grazie per esserti iscritto!',
-      registered: false
+      submitted: false,
+      form: {
+        1: {
+          label: 'Nome',
+          type: 'text',
+          id: 'name',
+          placeholder: 'Mario'
+        },
+        2: {
+          label: 'Cognome',
+          type: 'text',
+          id: 'surname',
+          placeholder: 'Rossi'
+        },
+        3: {
+          label: 'Email',
+          type: 'email',
+          id: 'email',
+          placeholder: 'mariorossi@leeviamail.com'
+        },
+        4: {
+          label: 'Tel',
+          type: 'tel',
+          id: 'tel',
+          placeholder: '0225258545'
+        },
+        5: {
+          label: 'Data di nascita',
+          type: 'text',
+          id: 'born',
+          placeholder: 'June 21, 1991'
+        },
+        6: {
+          label: 'Sei mai stato a Parigi?',
+          type: 'select',
+          id: 'everbeen',
+          options: {
+            1: {
+              value: 'yes',
+              text: 'Sì',
+              selected: true
+            },
+            2: {
+              value: 'no',
+              text: 'No'
+            },
+            3: {
+              value: 'other',
+              text: 'Forse'
+            }
+          }
+        },
+        7: {
+          wrapper: 'privacy',
+          text: 'ACCETTO il regolamento ed acconsento...',
+          inputs:
+            [{
+              value: 'yes',
+              type: 'radio',
+              label: 'Sì',
+              id: 'privacy',
+              checked: true
+            },
+            {
+              value: 'no',
+              type: 'radio',
+              label: 'No',
+              id: 'privacy'
+            }]
+        }
+      }
     }
   },
   methods: {
     joinUs: function (e) {
       e.preventDefault()
-      this.registered = true
+      this.submitted = true
     }
   }
 }

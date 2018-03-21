@@ -28,7 +28,7 @@ export default {
       })
         .done(function (data) {
           that.userList = data
-          setTimeout(function () { that.usersLoaded = true }, 800)
+          that.usersLoaded = true
         })
         .fail(function () {
           alert('error on ajax request')
