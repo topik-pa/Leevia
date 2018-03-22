@@ -1,6 +1,6 @@
 <template>
   <section>
-    <p>{{paragraph}}</p >
+    <p>{{paragraph}}</p>
     <div v-if="!usersLoaded" class="loader"></div>
     <ul v-else >
       <li v-for="(user, index) in userList" v-bind:key="index" v-if="user && index < limitationList">
