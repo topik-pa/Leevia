@@ -15,7 +15,20 @@ export default new Router({
     {
       path: '/Partecipanti',
       name: 'Users',
-      component: Users
+      component: Users,
+      meta: {
+        title: 'Partecipanti',
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Pagina partecipanti'
+          },
+          {
+            property: 'og:description',
+            content: 'Pagina partecipanti'
+          }
+        ]
+      }
     }
   ]
 })
