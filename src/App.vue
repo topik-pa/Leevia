@@ -9,6 +9,7 @@
 <script>
 import SiteHeader from '@/components/Header'
 import SiteFooter from '@/components/Footer'
+import store from './vuex/store'
 
 export default {
   name: 'App',
@@ -16,6 +17,7 @@ export default {
     SiteHeader,
     SiteFooter
   },
+  store,
   data () {
     return {
       globalLabel: 'Leevia test project'
@@ -42,5 +44,11 @@ export default {
       text-decoration: underline;
       font-weight: bold;
     }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave {
+    opacity: 0;
+  }
 }
 </style>

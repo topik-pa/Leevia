@@ -110,6 +110,7 @@ export default {
     joinUs: function (e) {
       e.preventDefault()
       this.submitted = true
+      this.$emit('formSubmitted')
     }
   }
 }

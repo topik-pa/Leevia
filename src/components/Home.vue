@@ -5,9 +5,14 @@
         <h1>{{title}}</h1>
         <p>{{paragraph}}</p>
         <p class="note" v-html="note"></p>
+        <transition name="fade">
+          <div v-if="isFormSubmitted" class="congrats">
+            {{congrats}}
+          </div>
+        </transition>
       </div>
       <div class="col-md-5">
-        <registration></registration>
+        <registration v-on:formSubmitted="formSubmitted"></registration>
       </div>
     </div>
   </main>
@@ -24,7 +29,14 @@ export default {
     return {
       title: 'Vinci un viaggio a Parigi',
       paragraph: 'Compila il form con i tuoi dati e partecipa all\'estrazioone di un viaggio a Parigi!',
-      note: 'Concorso valido dal 20/10/2017. Per info consulta il <a id="regolamento" href="#">regolamento</a>.'
+      note: 'Concorso valido dal 20/10/2017. Per info consulta il <a id="regolamento" href="#">regolamento</a>.',
+      congrats: 'Congratulazioni, i tuoi dati sono stati inviati!',
+      isFormSubmitted: false
+    }
+  },
+  methods: {
+    formSubmitted: function () {
+      this.isFormSubmitted = true
     }
   }
 }
@@ -51,6 +63,15 @@ export default {
     }
     .description {
       padding: 5% 30px;
+    }
+    .congrats {
+      color: $primary-color;
+      font-size: 150%;
+      margin-top: 80px;
+      text-transform: uppercase;
+      font-weight: bold;
+      text-shadow: 0 0 2px #fff;
+      letter-spacing: 1px;
     }
     .row {
       background-image: url('../assets/images/img_2-resize-min-reverse.jpg');
